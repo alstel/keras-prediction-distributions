@@ -7,10 +7,7 @@ from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# specify feature set and hub before running
-feature_sets = {}
-current_set = feature_sets['zonal']
-
+# specify hub before running
 nodes = {}
 node_name = ''
 nodeid = nodes[node_name]
@@ -147,9 +144,5 @@ print("\nPredictions processing time: {}".format(run_time))
 
 # summary
 model.summary()
-print("\n{}, feature set: {}, {} iterations".format(
-    node_name, 
-    current_set,
-    num_iter
-    ))
+print("\n{}, {} iterations".format(node_name, num_iter))
 print(perc)

@@ -7,14 +7,12 @@ from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# identify feature set and hub before running
-feature_sets = {}
-current_set = feature_sets['zonal']
-
+# specify hub before running
 nodes = {}
 node_name = ''
 nodeid = nodes[node_name]
 
+# for indexing later
 splits = {
     'test_startdate': '2020-01-01',
     'test_enddate': '2020-01-11'
@@ -104,9 +102,8 @@ for interval, color in prediction_intervals.items():
 
 #plt.plot(predictions, 'g', label="preds")
 plt.plot(y_test, 'k', alpha=0.8, label="RTH")
-plt.title("Price forecast: {}\nfeature set: {}, {}% dropout, {} iterations".format(
-        node_name, 
-        current_set, 
+plt.title("Price forecast: {}\n{}% dropout, {} iterations".format(
+        node_name,
         str(dropout * 100),
         num_iter
     ), fontsize=16)
